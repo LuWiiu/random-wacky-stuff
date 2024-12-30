@@ -19,7 +19,7 @@ class collatz:
     """
     expectOut: list = [[], [1], [10, 5, 16, 0]]
     currentTest: list
-    ouputNums: list = []
+    ouputNums = []
     out: int
 
     if not s.num <= 3: return 0
@@ -40,7 +40,7 @@ def main(debugMode: bool, fastCalc: bool = False)->int:
   if debugMode: return debugMain_(fastCalc)
   new: int
 
-  num: int = int(input("Starting number: "))
+  num = int(input("Starting number: "))
   c = collatz(num, fastCalc)
   while c.num != 1 and not c.F_stop:
     new = c.calc()
@@ -51,7 +51,7 @@ mode: str
 fastCalc: str
 mainArgs: list
 while True:
-  mode     = input("Debug mode y/n: ").lower()
-  fastCalc = input("fastCalc mode y/n: ").lower()
-  mainArgs = [mode == "y", fastCalc == "y"]
+  mode     = input("Debug mode y/n: ").lower() == "y"
+  fastCalc = input("fastCalc mode y/n: ").lower() == "y"
+  mainArgs = [mode, fastCalc]
   if input( f"main exited with code {main(*mainArgs)}... enter to exit > " ) != ".ag": break
